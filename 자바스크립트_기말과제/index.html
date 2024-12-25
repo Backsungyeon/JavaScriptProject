@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>써브웨이 키오스크</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 상단 로고 -->
+        <header class="header">
+            <h1 class="logo"></h1>
+            <div class="home">
+                <a href="intro.html">
+                    <button class="home_button"><img src="img/home_icon.png" alt=""></button>
+                </a>
+               
+            </div>
+            <div class="manager">
+                <button class="manager_button"><img src="img/manager_icon.png" alt=""></button>
+            </div>
+        </header>
+        <!-- 카테고리 버튼 -->
+        <nav class="categories">
+            <button onclick="showCategory('sandwich')">샌드위치</button>
+            <button onclick="showCategory('salad')">샐러드</button>
+            <button onclick="showCategory('wrap')">시그니처 랩</button>
+            <button onclick="showCategory('side')">사이드/음료</button>
+        </nav>
+        
+        <!-- 메인 화면 -->
+        <div class="main">
+            <div class="menu-container">
+                <!-- 메뉴 영역 -->
+                <!-- 샌드위치 메뉴 -->
+                <div class="menu-items active" id="sandwich" ondrop="removeFromCart(event)" ondragover="allowDrop(event)">
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="5900" data-id="tuna">
+                        <div class="menu-img sandwich1"></div>
+                        <div class="menu-info">
+                            <p class="name">참치 (15cm)</p>
+                            <p class="kcal">316 Kcal</p>
+                            <p class="price">5,900원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="5900" data-id="ham">
+                        <div class="menu-img sandwich2"></div>
+                        <div class="menu-info">
+                            <p class="name">햄 (15cm)</p>
+                            <p class="kcal">262 Kcal</p>
+                            <p class="price">5,900원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="5700" data-id="egg">
+                        <div class="menu-img sandwich3"></div>
+                        <div class="menu-info">
+                            <p class="name">에그마요 (15cm)</p>
+                            <p class="kcal">416 Kcal</p>
+                            <p class="price">5,700원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="6800" data-id="blt">
+                        <div class="menu-img sandwich4"></div>
+                        <div class="menu-info">
+                            <p class="name">비엘티 (15cm)</p>
+                            <p class="kcal">300 Kcal</p>
+                            <p class="price">6,800원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="7500" data-id="roastedChicken">
+                        <div class="menu-img sandwich5"></div>
+                        <div class="menu-info">
+                            <p class="name">로스트 치킨 (15cm)</p>
+                            <p class="kcal">300 Kcal</p>
+                            <p class="price">7,500원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="7500" data-id="rotisserieBarbecueChicken">
+                        <div class="menu-img sandwich6"></div>
+                        <div class="menu-info">
+                            <p class="name">로티세리 바비큐 치킨 (15cm)</p>
+                            <p class="kcal">327 Kcal</p>
+                            <p class="price">7,500원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="7700" data-id="shrimp">
+                        <div class="menu-img sandwich7"></div>
+                        <div class="menu-info">
+                            <p class="name">쉬림프 (15cm)</p>
+                            <p class="kcal">241 Kcal</p>
+                            <p class="price">7,700원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="8200" data-id="steak">
+                        <div class="menu-img sandwich8"></div>
+                        <div class="menu-info">
+                            <p class="name">스테이크 & 치즈 (15cm)</p>
+                            <p class="kcal">355 Kcal</p>
+                            <p class="price">8,200원</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 샐러드 메뉴 -->
+                <div class="menu-items active" id="salad" ondrop="removeFromCart(event)" ondragover="allowDrop(event)">
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="8500" data-id="turkey">
+                        <div class="menu-img salad salad1"></div>
+                        <div class="menu-info">
+                            <p class="name">터키 샐러드</p>
+                            <p class="kcal">103 Kcal</p>
+                            <p class="price">8,500원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="9200" data-id="spicyShrimp">
+                        <div class="menu-img salad salad2"></div>
+                        <div class="menu-info">
+                            <p class="name">스파이시 쉬림프 샐러드</p>
+                            <p class="kcal">83 Kcal</p>
+                            <p class="price">9,200원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="9200" data-id="pulledPorkBarbecue">
+                        <div class="menu-img salad salad3"></div>
+                        <div class="menu-info">
+                            <p class="name">폴드 포크 바비큐 샐러드</p>
+                            <p class="kcal">165 Kcal</p>
+                            <p class="price">9,200원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="6700" data-id="veggie">
+                        <div class="menu-img salad salad4"></div>
+                        <div class="menu-info">
+                            <p class="name">베지 샐러드</p>
+                            <p class="kcal">46,7 Kcal</p>
+                            <p class="price">6,700원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="9000" data-id="chickenTeriyaki">
+                        <div class="menu-img salad salad5"></div>
+                        <div class="menu-info">
+                            <p class="name">치킨 데리아끼 샐러드</p>
+                            <p class="kcal">152 Kcal</p>
+                            <p class="price">9,000원</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 랩 메뉴 -->
+                <div class="menu-items active" id="wrap" ondrop="removeFromCart(event)" ondragover="allowDrop(event)">
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="6600" data-id="avocadoWrap">
+                        <div class="menu-img wrap1"></div>
+                        <div class="menu-info">
+                            <p class="name">스테이크 & 치즈 아보카도 랩</p>
+                            <p class="kcal">478 Kcal</p>
+                            <p class="price">6,600원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="6200" data-id="shrimpEgg">
+                        <div class="menu-img wrap2"></div>
+                        <div class="menu-info">
+                            <p class="name">쉬림프 에그마요 랩</p>
+                            <p class="kcal">516 Kcal</p>
+                            <p class="price">6,200원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="3900" data-id="baconMin">
+                        <div class="menu-img wrap3"></div>
+                        <div class="menu-info">
+                            <p class="name">치킨 베이컨 미니랩</p>
+                            <p class="kcal">391 Kcal</p>
+                            <p class="price">3,900원</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 사이드/음료 메뉴 -->
+                <div class="menu-items active" id="side" ondrop="removeFromCart(event)" ondragover="allowDrop(event)">
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="1300" data-id="chocolate">
+                        <div class="menu-img side1"></div>
+                        <div class="menu-info">
+                            <p class="name">초코칩 쿠키</p>
+                            <p class="kcal">228 Kcal</p>
+                            <p class="price">1,300원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="1300" data-id="doubleChocolate">
+                        <div class="menu-img side2"></div>
+                        <div class="menu-info">
+                            <p class="name">더블 초코칩 쿠키</p>
+                            <p class="kcal">228 Kcal</p>
+                            <p class="price">1,300원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="1900" data-id="wedge">
+                        <div class="menu-img side3"></div>
+                        <div class="menu-info">
+                            <p class="name">웨지 포테이토</p>
+                            <p class="kcal">140 Kcal</p>
+                            <p class="price">1,900원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="2400" data-id="cheesyWedge">
+                        <div class="menu-img side4"></div>
+                        <div class="menu-info">
+                            <p class="name">Cheesy 웨지 포테이토</p>
+                            <p class="kcal">194 Kcal</p>
+                            <p class="price">2,400원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="1900" data-id="drink">
+                        <div class="menu-img side5"></div>
+                        <div class="menu-info">
+                            <p class="name">탄산음료</p>
+                            <p class="kcal">16oz 탄산음료</p>
+                            <p class="price">1,900원</p>
+                        </div>
+                    </div>
+                    <div class="menu-card" draggable="true" ondragstart="drag(event)" data-price="2500" data-id="coffe">
+                        <div class="menu-img side6"></div>
+                        <div class="menu-info">
+                            <p class="name">아메리카노</p>
+                            <p class="kcal">아메리카노</p>
+                            <p class="price">2,500원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 장바구니 -->
+            <div class="cart">
+                <h2>장바구니</h2>
+                <div class="cart-items" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <p class="kcal">주문할 메뉴를 선택해 주세요!</p>
+                </div>
+                <div class="cart-footer">
+                    <button onclick="clearCart()">전체삭제</button>
+                    <button id="checkout-btn">₩0 결제하기</button>
+                </div>
+            </div>
+            <!-- 영수증 -->
+            <div id="receipt" class="receipt-modal">
+                <div class="receipt-content">
+                    <h3>영수증</h3>
+                    <div id="receiptItems"></div>
+                    <hr>
+                    <h4>합계 : <span id="totalPayment"></span>원</h4>
+                    <div class="receipt-buttons">
+                        <button id="cancelReceipt">취소하기</button>
+                        <button id="confirmReceipt">결제하기</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="adminPage" class="admin-modal">
+                <div class="admin-content">
+                    <div class="admin-header">
+                        <h2>관리자 페이지</h2>
+                        <button id="closeAdmin">
+                            <img src="img/close_icon.svg" alt="">
+                        </button>
+                    </div>
+                    <div style="display: flex; flex: 1;">
+                        <!-- 세로로 정렬된 버튼 -->
+                        <div class="admin-tabs">
+                            <button class="active" onclick="showAdminSection('menuAdd')">메뉴 추가</button>
+                            <button onclick="showAdminSection('menuRemove')">메뉴 삭제</button>
+                            <button onclick="showAdminSection('salesReport')">정산</button>
+                        </div>
+                        <!-- 각 섹션 내용 -->
+                        <div id="menuAdd" class="admin-section active">
+                            <form id="addMenuForm">
+                                <label for="menuName">메뉴 이름:</label>
+                                <input type="text" id="menuName" name="menuName" required>
+                                <label for="menuPrice">가격:</label>
+                                <input type="number" id="menuPrice" name="menuPrice" required>
+                                <label for="menuNotes">비고 (칼로리 및 설명):</label>
+                                <input id="menuNotes" name="menuNotes" rows="3" required></input>
+                                <label for="menuCategory">카테고리:</label>
+                                <select id="menuCategory" name="menuCategory" required>
+                                    <option value="sandwich">샌드위치</option>
+                                    <option value="salad">샐러드</option>
+                                    <option value="wrap">시그니처 랩</option>
+                                    <option value="side">사이드/음료</option>
+                                </select>
+                                <label for="menuImage">사진:</label>
+                                <input type="file" id="menuImage" name="menuImage" accept="image/*" required>
+                                <button type="submit">추가하기</button>
+                            </form>                                               
+                        </div>
+                        <div id="menuRemove" class="admin-section">
+                            <div id="menuList">
+                                <!-- 동적으로 메뉴 리스트 추가 -->
+                            </div>
+                        </div>
+                        <div id="salesReport" class="admin-section">
+                            <p>총 판매 금액: <span id="totalSales">0</span>원</p><br>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

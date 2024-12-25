@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>써브웨이 키오스크</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }   
+        ::-webkit-scrollbar-thumb {
+            background: #0099472c; 
+            border-radius: 50px;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+        }
+        button {
+            all: unset;
+            border: 0;
+            background-color: transparent;
+        }
+        @font-face {
+            font-family: 'LINESeedKR-Bd';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'LINESeedKR-Rg';
+            src: url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.eot');
+            src: url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.woff') format('woff');
+            font-style: normal;
+        }
+        /* 전체 레이아웃 */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* 상단 로고 */
+        .header {
+            position: relative;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+        .manager {
+            position: absolute;
+            right: 30px; 
+            top: 47%; 
+            transform: translateY(-50%); 
+        }
+
+        .manager_button img {
+            width: 32px;
+            height: 32px;
+        }
+        .logo {
+            background: url(./img/logo.png) center no-repeat;
+            background-size: cover;
+            width: 202px;
+            height: 100%;
+            overflow: hidden;
+            display: block;
+        }
+
+        /* 메인 화면 */
+        .main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .intro_cont {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+        }
+        .intro_cont h1 {
+            margin-bottom: 20px;
+            position: relative;
+            top: -8px;
+        }
+        /* 매장, 포장 버튼 정렬 */
+        .for_here,
+        .take_out {
+            display: inline-block;
+            margin: 30px;
+            text-align: center;
+        }
+
+        .for_here a, .take_out a {
+            display: block;
+            padding: 20px;
+            /* border: 1px solid #ddd; */
+            border-radius: 20px;
+            background-color: #ffffff;
+            width: 260px;
+            height: 260px;
+            text-decoration: none;
+            color: black;
+            box-shadow: 0 4px 20px rgb(0 0 0 / 9%);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .for_here a:hover, .take_out a:hover {
+            transform: scale(1.05);
+        }
+
+        .for_here img, .take_out img {
+            width: 190px;
+            height: auto;
+            /* margin-bottom: 10px; */
+            object-fit: contain;
+            margin-top: -9px;
+        }
+
+        .for_here h2, .take_out h2 {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            font-family: 'LINESeedKR-Bd';
+        }
+
+        .for_here p, .take_out p {
+            font-size: 16px;
+            color: #8f8f8f;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 상단 로고 -->
+        <header class="header">
+            <h1 class="logo"></h1>
+        </header>
+        <div class="intro_cont">
+            <h1>주문방식을 선택해주세요.</h1>
+            <div class="order">
+                <div class="for_here">
+                    <a href="index.html">
+                        <img src="img/here2.png" alt="매장 이미지">
+                        <h2>매장</h2>
+                        <p>For Here</p>
+                    </a>
+                </div>
+                <div class="take_out">
+                    <a href="index.html">
+                        <img src="img/takeout2.png" alt="포장 이미지">
+                        <h2>포장</h2>
+                        <p>Take-out</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

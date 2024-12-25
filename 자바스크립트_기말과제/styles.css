@@ -1,0 +1,732 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent; 
+}   
+::-webkit-scrollbar-thumb {
+    background: #0099472c; 
+    border-radius: 50px;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+button{
+    all: unset;
+    border: 0;
+    background-color: transparent;
+}
+@font-face {
+font-family: 'LINESeedKR-Bd';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+font-weight: 700;
+font-style: normal;
+}   
+@font-face {
+    font-family: 'LINESeedKR-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.eot');
+    src:url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.woff') format('woff');
+    font-style: normal;
+}
+/* 전체 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 상단 로고 */
+.header {
+    position: relative; /* 자식 요소의 위치를 상대적으로 지정할 수 있도록 설정 */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* 배경색 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.058);
+}
+.home {
+    position: absolute;
+    left: 30px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.home_button img {
+    width: 32px; /* 아이콘 크기 */
+    height: 32px;
+}
+.manager {
+    position: absolute;
+    right: 30px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.manager_button img {
+    width: 32px; /* 아이콘 크기 */
+    height: 32px;
+}
+.logo {
+    background: url(./img/logo.png) center no-repeat;
+    background-size: cover;
+    width: 202px;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+/* 메인 화면 */
+.main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* 카테고리 버튼 */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0 20px 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.categories button {
+    padding: 11px 50px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background: #009948;
+    margin: 0 5px;
+    border-radius: 50px;
+    flex-grow: 1;
+    max-width: 215px;
+    font-family: 'LINESeedKR-Bd';
+}
+/* 메뉴 영역 */
+.menu-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.menu-items {
+    display: none;
+    flex-wrap: wrap;
+    margin-left: 80px;
+}
+
+.menu-items.active {
+    display: flex;
+}
+
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px;
+    width: 220px;
+    text-align: center;
+    background: #fff;
+    cursor: grab;
+    margin: 10px;
+    transition: all 0.2s ease-in-out; /* 부드러운 이동 효과 */
+}
+
+.menu-card:hover{
+    box-shadow:0 5px 15px rgba(0, 0, 0, 0.092);
+}
+/* 샌드위치 이미지 */
+.sandwich1{
+    background:url('img/tuna_sandwich_img.png')no-repeat center;
+}
+.sandwich2{
+    background:url('img/ham_sandwich_img.png')no-repeat center;
+}
+.sandwich3{
+    background:url('img/egg_sandwich_img.png')no-repeat center;
+}
+.sandwich4{
+    background:url('img/blt_sandwich_img.png')no-repeat center;
+}
+.sandwich5{
+    background:url('img/roastedChicken_sandwich_img.png')no-repeat center;
+}
+.sandwich6{
+    background:url('img/rotisserieBarbecueChicken_sandwich_img.png')no-repeat center;
+}
+.sandwich7{
+    background:url('img/shrimp_sandwich_img.png')no-repeat center;
+}
+.sandwich8{
+    background:url('img/steak_sandwich_img.png')no-repeat center;
+}
+/* 샐러드 이미지 */
+.salad1{
+    background:url('img/turkey_salad_img.png')no-repeat center;
+}
+.salad2{
+    background:url('img/spicy_shrimp_salad_img.png')no-repeat center;
+}
+.salad3{
+    background:url('img/pulled_pork_barbecue_salad_img.png')no-repeat center;
+}
+.salad4{
+    background:url('img/veggie_salad_img.png')no-repeat center;
+}
+.salad5{
+    background:url('img/chicken_teriyaki_salad_img.png')no-repeat center;
+}
+/* 랩 이미지 */
+.wrap1{
+    background:url('img/avocado_wrap_img.jpg')no-repeat center;
+}
+.wrap2{
+    background:url('img/shrimp_egg_mayo_wrap_img.jpg')no-repeat center;
+}
+.wrap3{
+    background:url('img/chicken_bacon_wrap_img.jpg')no-repeat center;
+}
+/* 사이드 이미지 */
+.side1{
+    background:url('img/chocolate_chip.jpg')no-repeat center;
+}
+.side2{
+    background:url('img/double_chocolate_chip.jpg')no-repeat center;
+}
+.side3{
+    background:url('img/wedge_potatoes.jpg') no-repeat center;
+}
+.side4{
+    background:url('img/cheesy_wedge_potatoes.jpg')no-repeat center; 
+}
+.side5{
+    background:url('img/drink.png')no-repeat center;
+}
+.side6{
+    background:url('img/coffe.png')no-repeat center;
+}
+.menu-img {
+    background-size:cover; width: 100%; height: 160px;
+}
+
+.menu-info {
+    font-size: 14px;
+}
+
+.menu-info .name{
+    font-size: 16px;
+    font-family: 'LINESeedKR-Bd';
+    margin-bottom: 18px;
+}
+.menu-info .kcal{
+    font-size: 14px;
+    color: #a4a4a4;
+    margin-bottom: 18px;
+}
+.menu-info .price{
+    font-size: 18px;
+    font-family: 'LINESeedKR-Bd';
+    color: #009948;
+    margin-bottom: 15px;
+}
+/* 장바구니 */
+.cart {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 0 20px 20px;
+    gap: 20px;
+}
+
+.cart h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+    text-align: center;
+}
+
+.cart-items {
+    flex: 1;
+    background: #fff;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #666;
+}
+
+.cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.cart-footer button {
+    padding: 11px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'LINESeedKR-Bd';
+}
+.cart-footer button:first-child{
+    width: 23%;
+    border: 1px solid #c9c9c9;
+    background-color: transparent;
+    color: #aaaaaa;
+} 
+.cart-footer button:last-child{
+    width: 56%;
+    background-color: #009948;
+    color: #fff;
+
+} 
+.quantity-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.quantity-controls button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'LINESeedKR-Bd';
+}
+
+/* 장바구니 내부 항목 스타일 */
+.cart-items {
+    display: flex;
+    flex-direction: column; /* 항목을 세로로 정렬 */
+    padding: 10px;
+    background: #fff;
+    overflow-y: auto;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.092);
+    border-radius: 20px;
+}
+
+.cart-items .menu-card {
+    display: flex;
+    flex-direction: row; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 15px;
+    width: 100%; /* 가로 전체 사용 */
+    box-sizing: border-box;
+    margin: 0;
+}
+.cart-items .menu-card:hover{
+    box-shadow: none;
+    background-color: #0099470e;
+}
+
+.cart-items .menu-card .menu-img {
+    width: 100px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    
+}
+.cart-items .menu-card .menu-img.salad {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    
+}
+.cart-items .menu-card .menu-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-items .menu-card .menu-info .name {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #000;
+    font-family: 'LINESeedKR-Rg';;
+    font-weight: 100;
+}
+
+.cart-items .menu-card .menu-info .price {
+    font-size: 14px;
+    color: #000;
+}
+
+.cart-items .menu-card .quantity-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cart-items .menu-card .quantity-controls button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #009955;
+    border: 2px solid #ffca0a;
+    text-align: center;
+    padding: 0;
+}
+.cart-items p.kcal {
+    color: #c2c2c2;
+    font-family: 'LINESeedKR-Rg';
+    text-align: center; /* 텍스트를 가로로 중앙 정렬 */
+    margin: auto; /* 세로로 중앙 정렬 */
+}
+.receipt-modal {
+    display: none; /* 기본적으로 보이지 않도록 설정 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.receipt-content {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+}
+.receipt-content h3,.receipt-content p,.receipt-content h4 {
+    margin: 10px 0;
+}
+
+#closeReceipt{
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 90%;
+    font-family: 'Tenada', sans-serif;
+}
+.receipt-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.receipt-buttons button {
+    line-height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'LINESeedKR-Bd';
+    text-align: center;
+}
+
+#cancelReceipt {
+    border: 1px solid #c9c9c9;
+    color: #aaaaaa;
+    margin-bottom: 13px
+    
+}
+
+#confirmReceipt {
+    background-color: #009948;
+    color: #fff;
+    padding: 1px;
+}
+
+.admin-modal {
+    display: none; /* 기본적으로 보이지 않음 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.admin-header h2{
+    margin: 10px 0;
+}
+/* 관리자 페이지 탭 세로 정렬 스타일 */
+.admin-tabs {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 10px;
+    margin-right: 20px; /* 컨텐츠와 간격 */
+    width: 20%; /* 전체 너비 중 20% 차지 */
+}
+
+.admin-tabs button {
+    padding: 10px;
+    border: none;
+    background: #009948;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'LINESeedKR-Bd';
+}
+
+.admin-tabs button.active {
+    background: #ffca0a;
+}
+
+.admin-content {
+    background: #fff;
+    padding: 10px 25px;
+    width: 50%; /* 넓게 영역을 잡음 */
+    height: 66%; /* 화면의 대부분을 차지 */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.admin-section {
+    flex: 1; /* 탭 내용이 넓게 차지하도록 설정 */
+    overflow-y: auto;
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+
+/*삭제기능 버튼*/
+
+/* 삭제 가능한 메뉴 리스트 스타일 */
+.deletable-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.deletable-menu-item button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* 샌드위치 */
+.menu-card.sandwich .menu-img {
+    background-size: cover;
+    border-radius: 10px;
+}
+
+/* 샐러드 */
+.menu-card.salad .menu-img {
+    background-size: contain;
+    border-radius: 20px;
+    border: 2px solid green;
+}
+
+/* 랩 */
+.menu-card.wrap .menu-img {
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 사이드/음료 */
+.menu-card.side .menu-img {
+    background-size: cover;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+}
+
+#menuList {
+    height: 340px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9; /* 배경색 */
+}
+
+
+/* 관리자 정산 섹션 */
+#salesReport {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-height: 320px; /* 정산 섹션 최대 높이 */
+    /* overflow-y: auto; */ /* 스크롤 활성화 */
+}
+
+#salesReport h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #009948;
+}
+
+.sales-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sale-entry {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sale-entry p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.sale-entry p strong {
+    color: #555;
+}
+
+#totalSales {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+/* 메뉴 추가 섹션 */
+#addMenuForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+#addMenuForm label {
+    font-size: 14px;
+    color: #555;
+}
+
+#addMenuForm input, #addMenuForm textarea, #addMenuForm select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'LINESeedKR-Rg';
+}
+
+#addMenuForm button {
+    background-color: #009948;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'LINESeedKR-Bd';
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addMenuForm button:hover {
+    background-color: #007a36;
+}
+
+/* 메뉴 추가 섹션 */
+#addMenuForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 320px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+}
+
+#addMenuForm label {
+    font-size: 16px;
+    color: #333;
+}
+
+#addMenuForm input, #addMenuForm textarea, #addMenuForm select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'LINESeedKR-Rg';
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+#addMenuForm button {
+    background-color: #009948;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3px;
+}
+
+#addMenuForm button:hover {
+    background-color: #007a36;
+}
+
+/* 관리자 섹션 전체 스타일 */
+.admin-section {
+    /* max-height: 500px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 전체 섹션의 스크롤 활성화 */
+    border-radius: 10px;
+}
