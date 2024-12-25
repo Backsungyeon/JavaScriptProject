@@ -160,11 +160,25 @@ window.onload = function() {
         // 장바구니 드래그 기능 업데이트
         updateCartDrag();
     }
+    
     function clearCart() {
         const cartItems = document.querySelector(".cart-items");
+        const cartMenuCards = cartItems.querySelectorAll(".menu-card");
+    
+        // 장바구니 항목을 원래 메뉴로 복구
+        cartMenuCards.forEach((cartItem) => {
+            const menuId = cartItem.dataset.id;
+            const menuItem = document.querySelector(`[data-id='${menuId}']`);
+            if (menuItem) {
+                menuItem.style.display = "flex"; // 숨겨진 메뉴를 다시 표시
+            }
+        });
+    
+        // 장바구니 초기화
         cartItems.innerHTML = `<p class="kcal">주문할 메뉴를 선택해 주세요!</p>`;
-        updateTotal();
+        updateTotal(); // 총합 갱신
     }
+    
 
     function enableCartDrag() {
         const cartItems = document.querySelectorAll(".cart-items .menu-card");
